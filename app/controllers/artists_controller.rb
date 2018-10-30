@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    @pref = Preference.find_by(id: 1)
+    if @pref.nil?
+      @artists = Artist.all
   end
 
   def show
